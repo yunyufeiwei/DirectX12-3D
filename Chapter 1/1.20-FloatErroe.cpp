@@ -24,7 +24,7 @@ int main()
 	//求向量在X方向上的长度
 	float LU = XMVectorGetX(XMVector3Length(n));
 
-	//在数学上，此向量的长度应当为1
+	//在数学上，此向量的长度应当为1，但在实际输出的却不是。
 	cout << LU << endl;
 	if (LU == 1.0f)
 	{
