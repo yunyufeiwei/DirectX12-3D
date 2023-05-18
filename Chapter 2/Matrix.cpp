@@ -42,16 +42,17 @@ int main()
                 0.0f, 2.0f, 0.0f, 0.0f,
                 0.0f, 0.0f, 4.0f, 0.0f,
                 1.0f, 2.0f, 3.0f, 1.0f);
-    //
+    //XMMatrixIdentity单位矩阵
     XMMATRIX B = XMMatrixIdentity();
-    //
+    //矩阵乘法
     XMMATRIX C = A * B;
-    //
+    //转置矩阵
     XMMATRIX D = XMMatrixTranspose(A);
-    //
+    //矩阵行列式
     XMVECTOR det = XMMatrixDeterminant(A);
+    //逆矩阵
     XMMATRIX E = XMMatrixInverse(&det, A);
-    //
+    //原矩阵与逆矩阵相乘等于单位矩阵
     XMMATRIX F = A * E;
 
     cout << "A = " << endl << A << endl;
@@ -61,6 +62,14 @@ int main()
     cout << "det = determinant(A) = " << det << endl << endl;
     cout << "E = inverse(A) = " << endl << E << endl;
     cout << "F = A * E =" << endl << F << endl;
+
+    /*XMMATRIX mat1(-2.0f, 0.0f, 3.0f,
+               4.0f, 1.0f, -1.0f);
+    XMMATRIX mat2(2.0f, -1.0f,
+        0.0f, 6.0f,
+        2.0f, -3.0f);
+    XMMATRIX mat = mat1 * mat2;
+    cout << mat << endl;*/
 
     return 0;
 }
