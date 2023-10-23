@@ -1,6 +1,6 @@
-﻿#include <Windows.h>            //包含Window头文件，其中含有编写Window应用程序所需的所有win32 API结构体、数据类型以及函数的声明
+﻿#include <Windows.h>                                        //包含Window头文件，其中含有编写Window应用程序所需的所有win32 API结构体、数据类型以及函数的声明
 
-HWND ghMainWnd = 0;             //用于指认所创建的主窗口句柄
+HWND ghMainWnd = 0;                                         //用于指认所创建的主窗口句柄
 
 bool InitWindowsApp(HINSTANCE instanceHandle, int show);    //封装初始化Windows应用程序所需的代码，如果初始化成功，该函数返回true，否则返回false
 int Run();                                                  //封装消息循环代码
@@ -9,6 +9,7 @@ int Run();                                                  //封装消息循环
 LRESULT CALLBACK
 WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+//在Windows应用程序中的WinMain函数就相当于大多数语言中的main()函数
 int WINAPI
 WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pCmdLine, int nCmdshow)
 {
@@ -18,9 +19,10 @@ WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pCmdLine, int nCmdsho
     return Run();
 }
 
-
+//初始化Windows应用程序所需的代码
 bool InitWindowsApp(HINSTANCE instanceHandle, int show)
 {
+    //通过填写WNDCLASS结构体，并根据齐总描述的特征来创建一个窗口，该结构体类型由Windows系统自己定义
     WNDCLASS wc;
 
     wc.style = CS_HREDRAW | CS_VREDRAW;
@@ -34,12 +36,14 @@ bool InitWindowsApp(HINSTANCE instanceHandle, int show)
     wc.lpszMenuName = 0;
     wc.lpszClassName = L"BasicWndClass";
 
+    //在Windows系统中为上午WNSCLASS注册一个实例，如果注册失败则打印Log，直接返回false
     if (!RegisterClass(&wc))
     {
         MessageBox(0, L"RegisterClass FAILED", 0, 0);
         return false;
     }
-
+    //第一个参数表示了注册的WNDCLASS实力，第二个参数表示了窗口标题，第三个参数表示了窗口的样式，第四个参数表示了x坐标，第五个参数表示了y坐标，第六个参数表示了窗口的宽度，第七个参数表示了窗口的高度
+    //第八个参数表示了父窗口，第九个参数表示了菜单句柄，第十个参数表示了应用程序实例句柄，第十一参数表示可以在次设置一些创建窗口所用的其他参数
     ghMainWnd = CreateWindow(L"BasicWndClass", L"Win32Basic", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, instanceHandle, 0);
 
     if (ghMainWnd == 0)
@@ -52,6 +56,7 @@ bool InitWindowsApp(HINSTANCE instanceHandle, int show)
     UpdateWindow(ghMainWnd);
 }
 
+//消息循环代码
 int Run()
 {
     MSG msg = { 0 };
