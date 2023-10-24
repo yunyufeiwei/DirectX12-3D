@@ -22,11 +22,11 @@ WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pCmdLine, int nCmdsho
 //初始化Windows应用程序所需的代码
 bool InitWindowsApp(HINSTANCE instanceHandle, int show)
 {
-    //通过填写WNDCLASS结构体，并根据齐总描述的特征来创建一个窗口，该结构体类型由Windows系统自己定义
+    //通过填写WNDCLASS结构体，并根据描述的特征来创建一个窗口，该结构体类型由Windows系统自己定义
     WNDCLASS wc;
 
-    wc.style = CS_HREDRAW | CS_VREDRAW;
-    wc.lpfnWndProc = WndProc;
+    wc.style = CS_HREDRAW | CS_VREDRAW;             //窗口样式
+    wc.lpfnWndProc = WndProc;                       //窗口过程函数的指针
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
     wc.hInstance = instanceHandle;
@@ -54,6 +54,8 @@ bool InitWindowsApp(HINSTANCE instanceHandle, int show)
     }
     ShowWindow(ghMainWnd, show);
     UpdateWindow(ghMainWnd);
+
+    return true;    //返回true则初始化成功
 }
 
 //消息循环代码
@@ -90,6 +92,7 @@ WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     case WM_KEYDOWN:
         if (wParam == VK_ESCAPE)
             DestroyWindow(ghMainWnd);
+        return 0;
     case WM_DESTROY:
         PostQuitMessage(0);
         return 0;
