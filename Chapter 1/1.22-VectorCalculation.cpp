@@ -20,7 +20,7 @@ ostream& XM_CALLCONV operator<<(ostream& os, FXMVECTOR v)
 int main()
 {
 	cout.setf(ios_base::boolalpha);
-	//
+	//检查是否支持SSE2指令集
 	if (!XMVerifyCPUSupport())
 	{
 		cout << "directx math not supported" << endl;
