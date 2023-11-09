@@ -7,7 +7,7 @@ using namespace std;
 using namespace DirectX;
 using namespace DirectX::PackedVector;
 
-//重载"<<"运算符，输出XMVECTOR对象
+//重载"<<"运算符，输出XMVECTOR（向量）对象
 ostream& XM_CALLCONV operator << (ostream& os, FXMVECTOR v)
 {
     XMFLOAT4 dest;
@@ -16,7 +16,7 @@ ostream& XM_CALLCONV operator << (ostream& os, FXMVECTOR v)
     os << "(" << dest.x << ", " << dest.y << ", " << dest.z << ", " << dest.w << ")";
     return os;
 }
-//重载"<<"运算符，输出XMMATRIX对象
+//重载"<<"运算符，输出XMMATRIX（矩阵）对象
 ostream& XM_CALLCONV operator << (ostream& os, FXMMATRIX m)
 {
     for (int i = 0; i < 4; i++)
