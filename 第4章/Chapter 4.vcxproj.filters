@@ -15,17 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\计算机图形学\DirectX12 3D\本书配套源代码\Common\d3dUtil.cpp">
-      <Filter>资源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\计算机图形学\DirectX12 3D\本书配套源代码\Common\d3dApp.cpp">
-      <Filter>资源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\计算机图形学\DirectX12 3D\本书配套源代码\Common\GameTimer.cpp">
-      <Filter>资源文件</Filter>
-    </ClCompile>
     <ClCompile Include="InitDirect3DApp.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\Common\d3dApp.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\d3dUtil.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\GameTimer.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\d3dApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\d3dUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\GameTimer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
