@@ -2,6 +2,7 @@
 
 HWND ghMainWnd = 0;                                         //用于指认所创建的主窗口句柄
 
+//函数回调，在后面实现的函数，需要再前面回调，否则WinMain函数的入口无法获取到函数体的内容
 bool InitWindowsApp(HINSTANCE instanceHandle, int show);    //封装初始化Windows应用程序所需的代码，如果初始化成功，该函数返回true，否则返回false
 int Run();                                                  //封装消息循环代码
 
