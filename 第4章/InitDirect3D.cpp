@@ -3,7 +3,7 @@
 #include <DirectXColors.h>
 using namespace DirectX;
 
-
+//InitDirect3DApp由D3DApp派生
 class InitDirect3DApp :public D3DApp
 {
 public:
@@ -81,7 +81,7 @@ void InitDirect3DApp::Draw(const GameTimer& gt)
 	mCommandList->RSSetViewports(1, &mScreenViewport);
 	mCommandList->RSSetScissorRects(1, &mScissorRect);
 
-	//清除后台缓冲区和深度缓冲区
+	//清除后台缓冲区和深度缓冲区，CleanRenderTargetView方法会将制定的渲染目标清理为给定的颜色
 	mCommandList->ClearRenderTargetView(CurrentBackBufferView(), Colors::LightSteelBlue, 0, nullptr);
 	mCommandList->ClearDepthStencilView(DepthStencilView(), D3D12_CLEAR_FLAG_DEPTH | D3D12_CLEAR_FLAG_STENCIL, 1.0F, 0, 0, nullptr);
 
