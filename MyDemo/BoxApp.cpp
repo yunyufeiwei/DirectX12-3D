@@ -74,7 +74,7 @@ private:
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
 				   PSTR cmdLine, int showCmd)
 {
-	// Enable run-time memory check for debug builds.
+    //为调试版本开启运行时内存检测，方便监督内存泄漏的情况
 #if defined(DEBUG) | defined(_DEBUG)
 	_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
 #endif
