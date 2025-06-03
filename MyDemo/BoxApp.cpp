@@ -71,8 +71,8 @@ private:
     POINT mLastMousePos;
 };
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
-				   PSTR cmdLine, int showCmd)
+//主函数入口
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR cmdLine, int showCmd)
 {
     //为调试版本开启运行时内存检测，方便监督内存泄漏的情况
 #if defined(DEBUG) | defined(_DEBUG)

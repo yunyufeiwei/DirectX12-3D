@@ -50,8 +50,7 @@ bool InitWindowsApp(HINSTANCE instanceHandle, int show)
     if (ghMainWnd == 0)
     {
         MessageBox(0, L"CreateWindow FAILED", 0, 0);
-        return false
-            ;
+        return false;
     }
     ShowWindow(ghMainWnd, show);
     UpdateWindow(ghMainWnd);
