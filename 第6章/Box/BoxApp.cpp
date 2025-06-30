@@ -284,6 +284,7 @@ void BoxApp::BuildDescriptorHeaps()
     ThrowIfFailed(md3dDevice->CreateDescriptorHeap(&cbvHeapDesc, IID_PPV_ARGS(&mCbvHeap)));
 }
 
+//常量缓冲区是一种GPU资源，其数据内容可供着色器程序所引用。与顶点缓冲区和索引缓冲区不同的是，常量缓冲区通常由CPU每帧更新一次。P196页
 void BoxApp::BuildConstantBuffers()
 {
 	mObjectCB = std::make_unique<UploadBuffer<ObjectConstants>>(md3dDevice.Get(), 1, true);
@@ -304,6 +305,7 @@ void BoxApp::BuildConstantBuffers()
 		mCbvHeap->GetCPUDescriptorHandleForHeapStart());
 }
 
+//执行绘制命令之前，那些应用程序将绑定到渲染流水线上的资源，他们会被映射到着色器的对应输入寄存器。P203页
 void BoxApp::BuildRootSignature()
 {
     //着色器程序一般需要以资源作为输入（例如常量缓冲区、纹理、采样器等）
